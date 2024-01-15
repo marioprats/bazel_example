@@ -1,4 +1,8 @@
-#include <urdf_parser/urdf_parser.h>
+#include <iostream>
+
+#include "urdf_parser/urdf_parser.h"
+#include "absl/strings/substitute.h"
+#include "Eigen/Geometry"
 
 int main(int argc, char** argv)
 {
@@ -11,6 +15,9 @@ int main(int argc, char** argv)
   std::vector<urdf::LinkSharedPtr> links;
   urdf->getLinks(links);
 
-  std::cout << "Robot has " << links.size() << " links." << std::endl;
+  std::cout << absl::Substitute("Robot has $0 links.\n", links.size());
+
+  Eigen::Vector3d vector(0.0, 0.0, 0.0);
+  std::cout << "Eigen vector: " << vector.transpose() << std::endl;
   return 0;
 }

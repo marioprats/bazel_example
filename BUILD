@@ -18,7 +18,7 @@ cmake(
 
 cc_binary(
     name = "parse_urdf",
-    srcs = ["src/parse_urdf.cpp"],
+    srcs = ["src/parse_urdf.cc"],
     deps = [":urdfdom", 
             "@abseil-cpp//absl/strings",
             "@eigen"],
