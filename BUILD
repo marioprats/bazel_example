@@ -15,3 +15,10 @@ cmake(
     ],
     visibility = ["//visibility:public"],
 )
+
+cc_binary(
+    name = "parse_urdf",
+    srcs = ["src/parse_urdf.cpp"],
+    deps = [":urdfdom"],
+    data = ["data/pr2.urdf"],
+)
