@@ -1,6 +1,7 @@
 #include <iostream>
 
-#include <urdf_parser/urdf_parser.h>
+#include "urdf_parser/urdf_parser.h"
+#include "absl/strings/substitute.h"
 
 int main(int argc, char** argv)
 {
@@ -13,6 +14,7 @@ int main(int argc, char** argv)
   std::vector<urdf::LinkSharedPtr> links;
   urdf->getLinks(links);
 
-  std::cout << "Robot has " << links.size() << " links." << std::endl;
+  std::cout << absl::Substitute("Robot has $0 links.\n", links.size());
+
   return 0;
 }

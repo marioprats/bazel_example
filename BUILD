@@ -19,6 +19,6 @@ cmake(
 cc_binary(
     name = "parse_urdf",
     srcs = ["src/parse_urdf.cpp"],
-    deps = [":urdfdom"],
+    deps = [":urdfdom", "@com_google_absl//absl/strings"],
     data = ["data/pr2.urdf"],
 )
