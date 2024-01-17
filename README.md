@@ -1,12 +1,12 @@
 # How to build
 
 ```
-bazel build :parse_urdf
+bazel build :example
 ```
 
 # Run example
 
 ```
-bazel run :parse_urdf
+bazel run :example
 ```
 

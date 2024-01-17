@@ -16,11 +16,20 @@ cmake(
     visibility = ["//visibility:public"],
 )
 
-cc_binary(
-    name = "parse_urdf",
-    srcs = ["src/parse_urdf.cc"],
+cc_library(
+    name = "core",
+    hdrs = ["src/core.h"],
+    srcs = ["src/core.cc"],
     deps = [":urdfdom", 
-            "@abseil-cpp//absl/strings",
+            "@abseil-cpp//absl/status:statusor",
             "@eigen"],
+)
+
+cc_binary(
+    name = "example",
+    srcs = ["src/example.cc"],
+    deps = [":urdfdom", 
+            ":core",
+            "@abseil-cpp//absl/strings"],
     data = ["data/pr2.urdf"],
 )
